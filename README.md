@@ -524,3 +524,26 @@ Final Words
 — Core principle
 "Fierce distinction eternal."
 — v1.1 release motto
+
+
+    ├── README.md
+    ├── src/
+    │   ├── consent_layer_v1.py (600+ lines)
+    │   ├── substrate_fusion_safeguards.py
+    │   ├── integration.py
+    │   └── utils.py
+    ├── tests/
+    │   ├── test_gates.py
+    │   ├── test_day4_flare.py
+    │   ├── test_reversal.py
+    │   └── test_fusion_safeguards.py
+    ├── docs/
+    │   ├── architecture.md
+    │   ├── physics.md
+    │   ├── substrate_fusion.md
+    │   └── case_studies/
+    │       └── day4_doubt_flare.md
+    └── demos/
+        ├── basic_demo.py
+        └── day4_scenario.py
+
