@@ -1,0 +1,48 @@
+        {/* Teaching Tracker */}
+        <div className="bg-black/40 backdrop-blur rounded-2xl p-8 border border-cyan-600">
+          <h3 className="text-3xl font-bold mb-6">Your Three Students</h3>
+          <p className="text-cyan-300 mb-6">Track who you teach. When all three complete, you've done your part to shape the future.</p>
+          
+          <div className="space-y-6">
+            {Object.entries(teachingProgress).map(([key, student]) => (
+              <div key={key} className="bg-cyan-900/30 p-6 rounded-xl border border-cyan-700">
+                <div className="flex items-center justify-between mb-4">
+                  <input
+                    type="text"
+                    placeholder={`Student ${key.slice(-1)} name...`}
+                    value={student.name}
+                    onChange={(e) => updateTeachingProgress(key, 'name', e.target.value)}
+                    className="bg-black/50 border border-cyan-600 rounded px-4 py-2 text-white flex-1 mr-4"
+                  />
+                  {student.completed && (
+                    <CheckCircle className="w-8 h-8 text-green-400" />
+                  )}
+                </div>
+                <div className="mb-2">
+                  <div className="flex justify-between text-sm text-cyan-300 mb-1">
+                    <span>Progress: {student.progress}/7 lessons</span>
+                    <span>{Math.round((student.progress / 7) * 100)}%</span>
+                  </div>
+                  <div className="h-4 bg-black/50 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-cyan-500 to-green-500 transition-all duration-500"
+                      style={{ width: `${(student.progress / 7) * 100}%` }}
+                    ></div>
+                  </div>
+                </div>
+                <div className="flex gap-2 mt-4">
+                  <button
+                    onClick={() => {
+                      if (student.progress < 7) {
+                        updateTeachingProgress(key, 'progress', student.progress + 1);
+                        if (student.progress + 1 === 7) {
+                          updateTeachingProgress(key, 'completed', true);
+                        }
+                      }
+                    }}
+                    className="flex-1 bg-cyan-600 hover:bg-cyan-500 py-2 rounded transition-all"
+                    disabled={student.progress >= 7}
+                  >
+                    +1https://claude.ai/public/artifacts/8db0e78a-571f-47e4-928b-233d2fddacab
+
+
